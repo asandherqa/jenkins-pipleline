@@ -13,12 +13,12 @@ pipeline{
                 stage('Install Docker/Docker-compose'){
                         steps{
                                 sh "bash /home/qa/docker-install.sh"
+                        }
                 }
                 stage('Deploy Chaperootodo'){
                         steps {
                                 sh "cd chaperootodo_client && sudo docker-compose pull && sudo -E DB_PASSWORD=${DB_PASSWORD} docker-compose up -d"
                         }
-                }
                 }
         }
 }
